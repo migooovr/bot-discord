@@ -155,4 +155,4 @@ message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serve
 
 
   
-process.env.TOKEN
+  bot.login('NTQ0MjMzODA0MzUzNTAzMjky.XKUnKg.jg5lYCbaSmxFM3hdB3Zp-sf_y-M')
