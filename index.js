@@ -3,7 +3,7 @@ const bot = new Discord.Client()
 
 // Bonjour, je vous conseille de supprimé ce code de votre ordinateur ou nous verrons ceci devant le tribunal pour vol  
 bot.on("ready", () => {
-    console.log(`[READY] Connecté avec ${bot.user.tag}! (${bot.user.id})`);
+    console.log(`[READY] Je suis pret à su ... tué ! ${bot.user.tag}! (${bot.user.id})`);
       bot.setInterval(() => {
           var activities = [
               {
@@ -55,8 +55,6 @@ message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serve
      '\n Personnes : ' + server_size)
     
 }
-})
-bot.on('message', message => {
   
     if (message.content === '_ping') {
 
@@ -77,11 +75,7 @@ bot.on('message', message => {
 
     message.channel.send('https://discordapp.com/oauth2/authorize?client_id=544233804353503292&scope=bot&permissions=805825630');
   }
-});
 
-
-
-  bot.on('message', message => {
 
     if (message.content === '_vdm') {
    
@@ -106,11 +100,7 @@ bot.on('message', message => {
         
           message.channel.send('**tout le monde te croit ...** ');
         }
-      });
-
-      
-      
-      bot.on('message', message => {
+ 
 
         if (message.content === 'il mytho') {
      
@@ -126,13 +116,11 @@ bot.on('message', message => {
        
                  message.channel.send('Nos partenaires ! \n \n Aucun, 5E le partenariat, ou ajouté le bot sur un serveur de plus de 500 membres actfis. \n \n ou payé un VPS ');
                };
-        if (message.content === '_pp') {
+        if (message.content === '_pp ') {
         
            message.reply(message.author.avatarURL);
          }
-       })
-
-       bot.on('message', message => {
+     
      if (!message.guild) return;
 
  
