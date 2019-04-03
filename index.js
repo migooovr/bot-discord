@@ -45,7 +45,7 @@ bot.on("ready", () => {
 	
 bot.on('message', function (message) {
 if (message.content === '_help') {
-message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serveur et le nombre de joueur présent dessus !  \n _help : affiche cet commande \n _ping: affiche probablement le ping du bot \n _p / _partenaire Affiche nos partenaires ! (5€) \n _kick : kick l’user mentionné \n _vdm : affiche une vie de merde (une seul seulement) \n _info Affiche des infos sur Migo et moi \n _invite Invitez le bot sur votre serveur !  `` \n ============ \n __Commande sans préfix !__ \n `je suis le meilleur \n il mytho \n FellDey` \n \n  **BOT NON FINIS** \nCréateur : Migo, aidé par Alex, Hébergé par : Bot non hébergé.  \n \n  https://discord.gg/Kps4Rs2 ')
+message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serveur et le nombre de joueur présent dessus !  \n _help : affiche cet commande \n _ping: affiche probablement le ping du bot \n _p / _partenaire Affiche nos partenaires ! (5€) \n _kick : kick l’user mentionné \n _vdm : affiche une vie de merde (une seul seulement) \n _info Affiche des infos sur Migo et moi \n _invite Invitez le bot sur votre serveur !  `` \n ============ \n __Commande sans préfix !__ \n `je suis le meilleur \n il mytho \n FellDey` \n \n  **BOT NON FINIS** \nCréateur : Migo, aidé par Alex, Hébergé par : Heroku.  \n \n  https://discord.gg/Kps4Rs2 \n https://fr.tipeee.com/migovr-donation ')')
 
 }
     if (message.content === '_server') {
