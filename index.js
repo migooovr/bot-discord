@@ -3,7 +3,7 @@ const bot = new Discord.Client()
 
 // Bonjour, je vous conseille de supprimé ce code de votre ordinateur ou nous verrons ceci devant le tribunal pour vol  
 bot.on("ready", () => {
-    console.log(`[READY] Je suis pret à su ... tué ! ${bot.user.tag}! (${bot.user.id})`);
+    console.log(`[READY] Je suis pret à faire du lourd ! ${bot.user.tag}! (${bot.user.id})`);
       bot.setInterval(() => {
           var activities = [
               {
@@ -45,7 +45,7 @@ bot.on("ready", () => {
 	
 bot.on('message', function (message) {
 if (message.content === '_help') {
-message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serveur et le nombre de joueur présent dessus !  \n _help : affiche cet commande \n _ping: affiche probablement le ping du bot \n _p / _partenaire Affiche nos partenaires ! (5€) \n _kick : kick l’user mentionné \n _vdm : affiche une vie de merde (une seul seulement) \n _info Affiche des infos sur Migo et moi \n _invite Invitez le bot sur votre serveur !  `` \n ============ \n __Commande sans préfix !__ \n `je suis le meilleur \n il mytho \n FellDey` \n \n  **BOT NON FINIS** \nCréateur : Migo, aidé par Alex, Hébergé par : Heroku.  \n \n  https://discord.gg/Kps4Rs2 \n https://fr.tipeee.com/migovr-donation ')
+message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs \n _mute sert à mute les méchants ! \n _purge suprrimés des messages simplement \n _server affiche le nom du serveur et le nombre de joueur présent dessus !  \n _help : affiche cet commande \n _ping: affiche probablement le ping du bot \n _p / _partenaire Affiche nos partenaires ! (5€) \n _kick : kick l’user mentionné \n _vdm : affiche une vie de merde (une seul seulement) \n _info Affiche des infos sur Migo et moi \n _invite Invitez le bot sur votre serveur !  `` \n ============ \n __Commande sans préfix !__ \n `je suis le meilleur \n il mytho \n FellDey` \n \n  **BOT NON FINIS** \nCréateur : Migo, aidé par Alex, Hébergé par : Heroku.  \n \n  https://discord.gg/Kps4Rs2 \n https://fr.tipeee.com/migovr-donation ')
 
 }
     if (message.content === '_server') {
@@ -68,18 +68,19 @@ message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serve
   
   if (message.content === '_invite') {
 
-    message.channel.send('https://discordapp.com/oauth2/authorize?client_id=544233804353503292&scope=bot&permissions=805825630');
+    message.channel.send('https://discordapp.com/oauth2/authorize?client_id=544233804353503292&scope=bot&permissions=805825630 Merci du soutiens <3');
   }
   
   if (message.content === '_i') {
 
-    message.channel.send('https://discordapp.com/oauth2/authorize?client_id=544233804353503292&scope=bot&permissions=805825630');
+    message.channel.send('https://discordapp.com/oauth2/authorize?client_id=544233804353503292&scope=bot&permissions=805825630 Merci du soutiens <3');
   }
 
 
     if (message.content === '_vdm') {
    
       message.channel.send('Aujourd’hui, mon petit ami rompt avec moi mais me raccompagne jusqu’à l’arrêt de bus en me consolant. Une fois que je suis montée, le chauffeur me lance joyeusement Il a l’air très amoureux celui-là ! J’ai fondu en larmes. VDM');
+  
     }
     let args = message.content.split(' ') 
     if(args[0] ===  '_say'){
@@ -89,8 +90,10 @@ message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serve
     
     } 
    
+    j 
+      
     
-        if (message.content === '_irl') {
+    if (message.content === '_irl') {
           
           message.channel.send('Migo : https://imgur.com/a/bOmhM7W ! ');
         }
@@ -105,6 +108,74 @@ message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serve
         if (message.content === 'il mytho') {
      
           message.channel.send('**JE SAIS** ');
+        }
+
+        if(command === "_ban") {
+        
+          if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
+            return message.reply("Vous n'avez pas la permission !");
+          
+          let member = message.mentions.members.first();
+          if(!member)
+            return message.reply ("Seléctionné un membre du serveur valide");
+          if(!member.bannable) 
+            return message.reply("Impossible, avez vous bien les permissions de bannir, si oui, je l'ai ai ?");
+      
+          let reason = args.slice(1).join(' ');
+          if(!reason) reason = "Aucune raison trouvés, abus de pouvoir ?";
+          
+          await member.ban(reason)
+            .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
+          message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+        }
+        
+        if(command === "_mute"){
+
+          if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Vous n'avez pas les droits pour muter un utilisateur !");
+      
+          let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+          if(!toMute) return message.channel.send("Merci d'entrer un utilisateur !");
+          let role = message.guild.roles.find(r => r.name === "Utilisateurs mutés");
+          if(!role){
+            try {
+              role = await message.guild.createRole({
+                name: "Utilisateurs mutés",
+                color:"#000000",
+                permissions:[]
+              });
+      
+              message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(role, {
+                  SEND_MESSAGES: false,
+                  ADD_REACTIONS: false
+                });
+              });
+            } catch (e) {
+              console.log(e.stack)
+            }
+          }
+      
+          if(toMute.roles.has(role.id)) return message.channel.send('Cet utilisateur est déjà muté !');
+      
+          await(toMute.addRole(role));
+          message.channel.send("Je l'ai muté !");
+      
+          return;
+        }
+      
+
+
+        if(command === "_purge") {
+          
+          const deleteCount = parseInt(args[0], 10);
+          
+          // Ooooh nice, combined conditions. <3
+          if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+            return message.reply("Selectionner entre 2 et 100 messages à supprimé");
+          
+          const fetched = await message.channel.fetchMessages({limit: deleteCount});
+          message.channel.bulkDelete(fetched)
+            .catch(error => message.reply(`Impossible de supprimé car : ${error}`));
         }
 
         if (message.content === '_partenaire') {
@@ -154,5 +225,5 @@ message.reply(' ``Page de la commande _help ! \n _server affiche le nom du serve
 });
 
 
-  
+
   bot.login('NTQ0MjMzODA0MzUzNTAzMjky.XKUnKg.jg5lYCbaSmxFM3hdB3Zp-sf_y-M')
