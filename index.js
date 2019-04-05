@@ -125,8 +125,8 @@ message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs
           if(!reason) reason = "Aucune raison trouvés, abus de pouvoir ?";
           
    bot.on('message', async message =>{
-            .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
-          message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
+	    .catch(error => message.reply(`Pardon ${message.author} je peux pas le ban car  : ${error}`));
+	   message.reply(`${member.user.tag} c'est fait ban par ${message.author.tag} raison : ${reason}`);
         }
         
         if(command === "_mute"){
