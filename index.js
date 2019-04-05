@@ -45,7 +45,7 @@ bot.on("ready", () => {
 	
 bot.on('message', function (message) {
 if (message.content === '_help') {
-message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs \n _mute sert à mute les méchants ! \n _purge suprrimés des messages simplement \n _server affiche le nom du serveur et le nombre de joueur présent dessus !  \n _help : affiche cet commande \n _ping: affiche probablement le ping du bot \n _p / _partenaire Affiche nos partenaires ! (5€) \n _kick : kick l’user mentionné \n _vdm : affiche une vie de merde (une seul seulement) \n _info Affiche des infos sur Migo et moi \n _invite Invitez le bot sur votre serveur !  `` \n ============ \n __Commande sans préfix !__ \n `je suis le meilleur \n il mytho \n FellDey` \n \n  **BOT NON FINIS** \nCréateur : Migo, aidé par Alex, Hébergé par : Heroku.  \n \n  https://discord.gg/Kps4Rs2 \n https://fr.tipeee.com/migovr-donation ')
+message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs (non fonctionnel)\n _mute sert à mute les méchants ! \n _purge suprrimés des messages simplement \n _server affiche le nom du serveur et le nombre de joueur présent dessus !  \n _help : affiche cet commande \n _ping: affiche probablement le ping du bot \n _p / _partenaire Affiche nos partenaires ! (5€) \n _kick : kick l’user mentionné \n _vdm : affiche une vie de merde (une seul seulement) \n _info Affiche des infos sur Migo et moi \n _invite Invitez le bot sur votre serveur !  `` \n ============ \n __Commande sans préfix !__ \n `je suis le meilleur \n il mytho \n FellDey` \n \n  **BOT NON FINIS** \nCréateur : Migo, aidé par Alex, Hébergé par : Heroku.  \n \n  https://discord.gg/Kps4Rs2 \n https://fr.tipeee.com/migovr-donation ')
 
 }
     if (message.content === '_server') {
@@ -110,24 +110,7 @@ message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs
           message.channel.send('**JE SAIS** ');
         }
 
-        if(command === "_ban") {
-        
-          if(!message.member.roles.some(r=>["Administrator"].includes(r.name)) )
-            return message.reply("Vous n'avez pas la permission !");
-          
-          let member = message.mentions.members.first();
-          if(!member)
-            return message.reply ("Seléctionné un membre du serveur valide");
-          if(!member.bannable) 
-            return message.reply("Impossible, avez vous bien les permissions de bannir, si oui, je l'ai ai ?");
       
-          let reason = args.slice(1).join(' ');
-          if(!reason) reason = "Aucune raison trouvés, abus de pouvoir ?";
-          
-   bot.on('message', async message =>{
-	    .catch(error => message.reply(`Pardon ${message.author} je peux pas le ban car  : ${error}`));
-	   message.reply(`${member.user.tag} c'est fait ban par ${message.author.tag} raison : ${reason}`);
-        }
         
         if(command === "_mute"){
 
