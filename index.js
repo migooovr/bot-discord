@@ -124,7 +124,7 @@ message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs
           let reason = args.slice(1).join(' ');
           if(!reason) reason = "Aucune raison trouvés, abus de pouvoir ?";
           
-          await member.ban(reason)
+    await member.ban(reason)
             .catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : ${error}`));
           message.reply(`${member.user.tag} has been banned by ${message.author.tag} because: ${reason}`);
         }
