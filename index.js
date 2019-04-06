@@ -174,4 +174,4 @@ message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs
 
 
 
-  bot.login('NTQ0MjMzODA0MzUzNTAzMjky.XKUnKg.jg5lYCbaSmxFM3hdB3Zp-sf_y-M')
+  bot.login('NTQ0MjMzODA0MzUzNTAzMjky.XKhrrA.JXbJoYk_6V89rGUdoDc0X8oDCYo')
