@@ -112,20 +112,6 @@ message.reply(' ``Page de la commande _help ! \n _ban sert à bannir des joueurs
 
       
 
-
-        if(command === "_purge") {
-          
-          const deleteCount = parseInt(args[0], 10);
-          
-          // Ooooh nice, combined conditions. <3
-          if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-            return message.reply("Selectionner entre 2 et 100 messages à supprimé");
-          
-          const fetched = await message.channel.fetchMessages({limit: deleteCount});
-          message.channel.bulkDelete(fetched)
-            .catch(error => message.reply(`Impossible de supprimé car : ${error}`));
-        }
-
         if (message.content === '_partenaire') {
      
           message.channel.send('**Nos partenaires !** \n \n Aucun, 5E le partenariat, ou ajouté le bot sur un serveur de plus de 500 membres actfis. \n \n *ou payé un VPS* ');
